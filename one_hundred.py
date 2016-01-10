@@ -15,7 +15,7 @@ sum([x for x in xrange(1000) if x % 3 == 0 or x % 5 == 0])
 fibs = [1,1]
 
 while fibs[-1] < 4000000:
-	fibs.append(fibs[-1]+fibs[-2])
+    fibs.append(fibs[-1]+fibs[-2])
 
 sum([x for x in fibs if x % 2 == 0])
 
@@ -23,8 +23,8 @@ sum([x for x in fibs if x % 2 == 0])
 # What is the largest prime factor of the number 600851475143 ?
 
 def find_primes(n):
-	threshold = int(np.ceil(sqrt(n)))
-	return [x if threshold % x == 0 for x in xrange(threshold, 3, -1)]
+    threshold = int(np.ceil(sqrt(n)))
+    return [x if threshold % x == 0 for x in xrange(threshold, 3, -1)]
 
 # 4)
 # Find the largest palindrome made from the product of two
@@ -67,39 +67,39 @@ def find_primes(n):
 
 lst = []
 for c in xrange(1,1001):
-	for b in xrange(c):
-		for a in xrange(b):
-			if a ** 2 + b ** 2 == c ** 2 and a + b + c == 1000:
-				lst.append((a, b, c))
-				break
-				
+    for b in xrange(c):
+        for a in xrange(b):
+	    if a ** 2 + b ** 2 == c ** 2 and a + b + c == 1000:
+		lst.append((a, b, c))
+		break
+
 print np.prod(lst)
 
 # 10)
 # Find the sum of the primes less than 2000000
 
 def erat2():
-	"""
-	from http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n
-	"""
-	d = {}
-	yield 2
+    """
+    from http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n
+    """
+    d = {}
+    yield 2
 
-	for q in itertools.islice(itertools.count(3), 0, None, 2):
-		p = d.pop(q, None)
-		if p is None:
-			d[q*q] = q
-			yield q
-		else:
-			x = p + q
-			while x in d or not (x&1):
-				x += p
-			d[x] = p
+    for q in itertools.islice(itertools.count(3), 0, None, 2):
+        p = d.pop(q, None)
+	if p is None:
+	    d[q*q] = q
+	    yield q
+	else:
+	    x = p + q
+	        while x in d or not (x&1):
+		    x += p
+	        d[x] = p
 
 def get_primes_erat(n):
-	return list(itertools.takewhile(lambda p: p < n, erat2()))
+    return list(itertools.takewhile(lambda p: p < n, erat2()))
 
 print sum(get_primes_erat(2000000))
 
 # 11)
-# 
+#
