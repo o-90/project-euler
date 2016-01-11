@@ -82,6 +82,16 @@ max(find_primes(600851475143))
 # Find the thirteen adjacent digits in the 1000-digit number that
 # have the greatest product. What is the value of this product?
 
+p = []
+r = r.replace("\n", "")
+
+for i in xrange(1000 - 13 + 1):
+    tmp = r[i:i+13]
+    p = np.prod([int(char) for char in tmp])
+    prods.append(p)
+
+max(p)
+
 # 9)
 # A Pythagorean triplet is a set of three natural numbers, a < b < c,
 # for which, a**2 + b**2 = c**2
