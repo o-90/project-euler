@@ -23,15 +23,15 @@ sum([x for x in fibs if x % 2 == 0])
 # What is the largest prime factor of the number 600851475143 ?
 
 def find_primes(n):
-	threshold = int(np.ceil(sqrt(n)))
-	for x in xrange(threshold, 0, -1):
-		if i % x == 0:
-			break
+    threshold = int(np.ceil(sqrt(n)))
+    for x in xrange(threshold, 0, -1):
+	if i % x == 0:
+	    break
 
-	if x == 1:
-		return i
-	else:
-		return find_primes(x), find_primes(i / x)
+    if x == 1:
+        return i
+    else:
+        return find_primes(x), find_primes(i / x)
 
 max(find_primes(600851475143))
 
