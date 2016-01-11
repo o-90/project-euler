@@ -23,12 +23,35 @@ sum([x for x in fibs if x % 2 == 0])
 # What is the largest prime factor of the number 600851475143 ?
 
 def find_primes(n):
-    threshold = int(np.ceil(sqrt(n)))
-    return [x if threshold % x == 0 for x in xrange(threshold, 3, -1)]
+	threshold = int(np.ceil(sqrt(n)))
+	for x in xrange(threshold, 0, -1):
+		if i % x == 0:
+			break
+
+	if x == 1:
+		return i
+	else:
+		return find_primes(x), find_primes(i / x)
+
+max(find_primes(600851475143))
 
 # 4)
 # Find the largest palindrome made from the product of two
 # 3-digit numbers
+
+# 5)
+# What is the smallest positive number that is evenly divisible by 
+# all the numbers from 1 - 20 ?
+
+# 6)
+# Find the difference between the sum of the squares of the first
+# 100 natural numners and the square of the sum.
+
+(100*101 / 2)**2 - sum([x**2 for x in xrange(1,101)])
+
+# 7)
+# What is the 10001st prime number?
+
 
 # 8)
 # The four adjacent digits in the 1000-digit number that have the 
