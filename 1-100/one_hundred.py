@@ -40,7 +40,7 @@ max(find_primes(600851475143))
 # 3-digit numbers
 
 # 5)
-# What is the smallest positive number that is evenly divisible by 
+# What is the smallest positive number that is evenly divisible by
 # all the numbers from 1 - 20 ?
 
 # 6)
