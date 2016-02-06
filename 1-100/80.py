@@ -38,7 +38,7 @@ for i in xrange(1000000):
     # do updates for shits and gigs
     if (i + 1) % 100000 == 0 and i > 0:
         et = time.time()
-        print "c-value ;= {}\t@ iter := {}\ttimeelapsed := {}".format(c, i+1, et-st)
+        print "c-value := {}\t@ iter := {}\ttime elapsed := {}".format(c, i+1, et-st)
 
     d = defaultdict(int)
     lst = [i]
