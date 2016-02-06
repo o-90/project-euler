@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
+
 import time
+from math import factorial
 from collections import defaultdict
+
 
 # 74)
 # The number 145 is well known for the property that the sum of the factorial of its digits is equal to 145:
@@ -18,18 +21,11 @@ from collections import defaultdict
 # How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?
 
 # helper functions
-def _fac(n):
-    if n == 0:
-        return 1
-    else:
-        return n * _fac(n - 1)
 
-def _parse_nums(n):
-    return [int(x) for x in str(n)]
+facts = {x: factorial(x) for x in xrange(10)}
 
 def _get_new_num(n):
-    return sum(map(fac, _parse_nums(n)))
-
+    return sum([facts[int(x)] for x in str(n)])
 
 st = time.time()
 c = 0
@@ -45,7 +41,7 @@ for i in xrange(1000000):
 
     while d.get(lst[-1], None) is None:
         d[lst[-1]] += 1
-        n = _get_new(lst[-1])
+        n = _get_new_num(lst[-1])
         lst.append(n)
 
     if len(lst) - 1 == 60:
