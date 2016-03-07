@@ -5,8 +5,9 @@ import itertools
 
 
 # 43)
-#The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
-#
+#The number, 1406357289, is a 0 to 9 pandigital number because it is made up of
+#each of the digits 0 to 9 in some order, but it also has a rather interesting
+#sub-string divisibility property.
 #Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note the following:
 #
 #    d2d3d4=406 is divisible by 2
@@ -47,14 +48,14 @@ ans = sum([int(x) for x in nums])
 def penta(n):
     return n * (3 * n - 1) / 2
 
-d = { penta(x): True for x in xrange(1, 10001)  }
+d = {penta(x): True for x in xrange(1, 10001)}
 penta_keys = d.keys()
 
 want = []
 
 for k, i in enumerate(penta_keys):
     for j in penta_keys[k:]:
-        if d.get(i+j, None) and d.get(abs(i-j)) is not None:
+        if d.get(i+j, None) and d.get(abs(i-j), None) is not None:
             want.append((i, j))
 
 smallest = want[0]
