@@ -3,6 +3,7 @@
 
 import numpy as np
 import itertools
+import csv
 
 # 10)
 # Find the sum of the primes less than 2000000
@@ -247,6 +248,29 @@ def collatz(n, c=0):
 #    91 71 52 38 17 14 91 43 58 50 27 29 48
 #  63 66 04 68 89 53 67 30 73 16 69 87 40 31
 # 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
+
+f = open("big_triangle.txt", 'r')
+read = csv.reader(f)
+
+arr = np.zeros((15, 15))
+
+# populate array with triangle
+for i, line in enumerate(read):
+    nums = line[0].split(" ")
+    for j, num in enumerate(nums):
+        arr[i][j] = int(num)
+
+for i in xrange(1, len(arr)):
+    for j in xrange(i+1):
+        if j == 0:
+            arr[i][j] += arr[i-1][j]
+        elif i == j:
+            arr[i][j] += arr[i-1][j-1]
+        else:
+            arr[i][j] += np.maximum(arr[i-1][j], arr[i-1][j-1])
+
+ans = np.max(arr[-1])
+
 
 # 19)
 # You are given the following information, but you may prefer to do some
