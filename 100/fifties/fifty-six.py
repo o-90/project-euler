@@ -17,4 +17,5 @@ for idx, nums in enumerate(perms):
     s = sum([int(x) for x in str(nums)])
     perms[idx] = s
 
-ans = max(perms)  # 972
+ans = max(perms)
+print ans  # 972

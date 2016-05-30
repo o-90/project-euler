@@ -2,7 +2,6 @@
 
 from math import log
 
-
 # 99)
 # Comparing two numbers written in index form like 211 and 37 is not difficult,
 # as any calculator would confirm that 211 = 2048 < 37 = 2187.
@@ -13,5 +12,6 @@ from math import log
 
 f = open("../../data/p099_base_exp.txt", 'r')
 base_pairs = [x.strip().split(',') for x in f.readlines()]
-d = {e: int(x[1]) * log(int(x[0])) for e, x in enumerate(base_pairs)}
-d[max(d.keys())]  # = 708.  Zero-based to add 1.  ans = 709
+d = {int(x[1]) * log(int(x[0])): e for e, x in enumerate(base_pairs)}
+ans = d[max(d.keys())] + 1
+print ans  # 709
