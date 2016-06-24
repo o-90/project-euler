@@ -5,4 +5,4 @@
 --
 -- Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.
 ans = (sum $ map(\x -> x^x)[1,2 .. 1000]) `mod` 10^10
-print ans
+print ans  -- 9110846700
