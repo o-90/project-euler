@@ -18,18 +18,19 @@
 tmp = []
 
 def calc(lst, c=0):
-	"""
-	"""
-	if c // 8 == 500:
-		return 0
+    """
+    """
+    if c // 8 == 500:
+        return 0
 
-	else:
-		new_list = [x + c for x in range(2, 10, 2)]
-		out_list = [x + y for x, y in zip(lst, new_list)]
-		tmp.extend(out_list)
+    else:
+        new_list = [x + c for x in range(2, 10, 2)]
+	out_list = [x + y for x, y in zip(lst, new_list)]
+	tmp.extend(out_list)
 
-		return calc(out_list, c+8)
+	return calc(out_list, c+8)
 
 calc([1]*4)
 ans = 1 + sum(tmp)
+
 print ans  # 669171001
