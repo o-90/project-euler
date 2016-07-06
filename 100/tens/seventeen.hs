@@ -1,5 +1,6 @@
-{-# OPTIONS_GHC -Wall #-}
-module tester where
+
+
+module Main where
 
 -- | change a number under 1000 to a word
 numsToWords :: Int -> String
@@ -34,28 +35,30 @@ numsToWords x =
             _ | x >= 40   -> "forty"           ++ numsToWords (x - 40)
             _ | x >= 30   -> "thirty"          ++ numsToWords (x - 30)
             _ | x >= 20   -> "twenty"          ++ numsToWords (x - 20)
-            _ | x == 19   -> "nineteen" 
-            _ | x == 18   -> "eighteen" 
+            _ | x == 19   -> "nineteen"
+            _ | x == 18   -> "eighteen"
             _ | x == 17   -> "seventeen"
-            _ | x == 16   -> "sixteen"  
-            _ | x == 15   -> "fifteen"  
-            _ | x == 14   -> "fourteen" 
-            _ | x == 13   -> "thirteen" 
-            _ | x == 12   -> "twelve"   
-            _ | x == 11   -> "eleven"   
-            _ | x == 10   -> "ten"      
-            _ | x == 9    -> "nine"     
-            _ | x == 8    -> "eight"    
-            _ | x == 7    -> "seven"    
-            _ | x == 6    -> "six"      
-            _ | x == 5    -> "five"     
-            _ | x == 4    -> "four"     
-            _ | x == 3    -> "three"    
-            _ | x == 2    -> "two"      
-            _ | x == 1    -> "one"      
+            _ | x == 16   -> "sixteen"
+            _ | x == 15   -> "fifteen"
+            _ | x == 14   -> "fourteen"
+            _ | x == 13   -> "thirteen"
+            _ | x == 12   -> "twelve"
+            _ | x == 11   -> "eleven"
+            _ | x == 10   -> "ten"
+            _ | x == 9    -> "nine"
+            _ | x == 8    -> "eight"
+            _ | x == 7    -> "seven"
+            _ | x == 6    -> "six"
+            _ | x == 5    -> "five"
+            _ | x == 4    -> "four"
+            _ | x == 3    -> "three"
+            _ | x == 2    -> "two"
+            _ | x == 1    -> "one"
             _             -> ""
 
-lenWords :: String -> Int
-lenWords = length . numsToWords
+-- | add a signature here
+lenNumWords = length . numsToWords
 
-print sum $ map lenWords [1..1000]
+main = do
+  let ans = sum $ map lenNumWords [1..1000]
+  print ans
