@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import time
 from itertools import combinations_with_replacement
 
 
@@ -22,9 +23,6 @@ from itertools import combinations_with_replacement
 # Find the sum of all the positive integers which cannot be written as the sum of
 # two abundant numbers.
 
-
-import time
-from itertools import combinations_with_replacement
 
 def factors(n):
     return set(reduce(list.__add__,

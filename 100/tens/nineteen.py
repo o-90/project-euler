@@ -47,6 +47,6 @@ for year in xrange(1901, 2001):
         l = [x + days for x in yr]
         days += 365
 
-    ans+= num_sundays(l)
+    ans += num_sundays(l)
 
 print ans  # 171
