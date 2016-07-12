@@ -17,7 +17,7 @@ want = []
 
 for k, i in enumerate(penta_keys):
     for j in penta_keys[k:]:
-        if d.get(i+j, None) and d.get(abs(i-j), None) is not None:
+        if d.get(i+j, False) and d.get(abs(i-j), False):
             want.append((i, j))
 
 smallest = want[0]
