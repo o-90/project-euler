@@ -13,7 +13,8 @@
 # Interestingly, φ(87109)=79180, and it can be seen that 87109 is a
 # permutation of 79180.
 #
-#Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and the ratio n/φ(n) produces a minimum.
+# Find the value of n, 1 < n < 107, for which φ(n) is a permutation of n and
+# the ratio n/φ(n) produces a minimum.
 
 
 def sundaram3(max_n):
@@ -34,8 +35,7 @@ def sundaram3(max_n):
 
 def totientsbelow(N):
     """
-    generate number, totient pairs for numbers
-    less than N
+    generate number, totient pairs for numbers less than N
     http://stackoverflow.com/questions/1024640/calculating-phik-for-1kn
     """
     allprimes = sundaram3(N+1)
@@ -43,10 +43,13 @@ def totientsbelow(N):
         for p in allprimes:
             if p > n:
                 break
-            # avoid double solutions such as (6, [2,3]), and (6, [3,2])
-            if p < min_p: continue
+
+            if p < min_p:
+                continue
+
             yield (p, p-1, [p])
-            for t, tot2, r in rec(n//p, partialtot, min_p = p): # uses integer division
+
+            for t, tot2, r in rec(n//p, partialtot, min_p = p):
                 yield (t*p, tot2 * p if p == r[0] else tot2 * (p-1), [p] + r)
 
     for n, t, factors in rec(N):

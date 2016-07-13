@@ -43,7 +43,7 @@ primes = list(set(upper).difference(set(lower)))
 dic = {p: True for p in primes}
 
 for ps in primes:
-    if dic.get(ps-3330, False) and dic.get(ps+3330):
+    if dic.get(ps-3330, False) and dic.get(ps+3330, False):
         if is_permutation(ps-3330, ps, ps+3330):
             ans = str(ps-3330)+str(ps)+str(ps+3330)
 
