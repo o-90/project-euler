@@ -4,6 +4,7 @@ from primefac import primefac
 from collections import Counter, defaultdict, deque
 from Queue import Queue
 
+
 # 47)
 # The first two consecutive numbers to have two distinct prime factors are:
 #
@@ -29,16 +30,18 @@ success = 0
 
 for num in xrange(647, 200000):
     primes = distinct_primes(num)
+
     if len(primes) != 4:
         q.clear()
         success = 0
-    else:
 
+    else:
         q.extend(primes)
         success += 1
 
         if success >= 4:
             if len(set(q)) == len(list(q)):
                 break
+
 ans = num - 3
 print ans  # 134043
