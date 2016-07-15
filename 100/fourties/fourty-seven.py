@@ -2,7 +2,6 @@
 
 from primefac import primefac
 from collections import Counter, defaultdict, deque
-from Queue import Queue
 
 
 # 47)
