@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import string
+
+
 # 59)
 # Each character on a computer is assigned a unique code and the preferred
 # standard is ASCII (American Standard Code for Information Interchange). For
@@ -23,6 +26,16 @@
 # text must contain common English words, decrypt the message and find the
 # sum of the ASCII values in the original text.
 
+# ----------------------------------------------------------------------------
+# NOTE:  We can assume that since this a paragraph of english words and
+# sentences, that the last character is a period (.).  There are 1201
+# ASCII characters in the text, so the last encryption character will
+# correspond to the 1st character (because 1201 is congruent to 1 mod 3).
+# Therefore, the text begins with a '(' and every 3rd element can be
+# decrypted with the key 103.
+# ----------------------------------------------------------------------------
+
+
 
 def logical_xor(a, b):
     """
@@ -30,14 +43,33 @@ def logical_xor(a, b):
     """
     a = bin(a)[2:]
     b = bin(b)[2:]
+    diff = abs(len(a) - len(b))
+
     if len(a) < len(b):
-        a = '0' + a
+        a = diff * '0' + a
     if len(b) < len(a):
-        b = '0' + b
-    return ''.join(str(int(x)^int(y)) for x, y in zip(a, b))
+        b = diff * '0' + b
 
-assert int(logical_xor(65, 42), 2) == 107
-assert int(logical_xor(107, 42), 2) == 65
+    return int(''.join(str(int(x)^int(y)) for x, y in zip(a, b)), 2)
 
-f = open("project-euler/data/p059_cipher.txt", 'r')
+
+lcase = string.ascii_lowercase
+ascii_map = {ord(x): x for x in list(lcase)}
+
+
+f = open("../../data/p059_cipher.txt", 'r')
 codes = f.read().strip().split(',')
+
+keys = ascii_map.keys()
+phrase = []
+
+for k, x in enumerate(codes):
+    if k%3 == 0:
+        phrase.append(logical_xor(int(x), 103))
+    elif k%3 == 1:
+        phrase.append(logical_xor(int(x), 111))
+    else:
+        phrase.append(logical_xor(int(x), 100))
+
+ans = sum(phrase)
+print ans
