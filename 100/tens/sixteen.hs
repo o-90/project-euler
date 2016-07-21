@@ -17,6 +17,7 @@ sumDigits 0 = 0
 sumDigits x = lastDigit x + sumDigits(dropLast x)
 
 -- | main
+main :: IO ()
 main = do
   let ans = sumDigits (2^1000)
   print ans
