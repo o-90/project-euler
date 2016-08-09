@@ -3,7 +3,7 @@
 from primefac import primefac
 
 
-# 110)
+# 108)
 # In the following equation x, y, and n are positive integers.
 #
 #    (1/x) + (1/y) = (1/n)
@@ -31,15 +31,14 @@ from primefac import primefac
 # ----------------------------------------------------------------------------
 
 
-LIMIT = 8000000
-primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
+LIMIT = 2000
+primes = [2, 3, 5, 7, 11, 13, 17, 19]
 
 tmp = []
 
 for x in range(1, 10):
     for y in range(1, 10):
-        for z in range(1, 10):
-            tmp.append((3**x)*(5**y)*(7**z))
+        tmp.append((3**x)*(5**y))
 
 smallest = min([u for u in tmp if u > LIMIT])
 exponents = [(p-1)/2 for p in primefac(smallest)][::-1]
