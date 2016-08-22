@@ -55,18 +55,32 @@ data Value = Two
     | Jack
     | Queen
     | King
-    | Ace deriving (Show, Eq, Ord)
+    | Ace deriving (Show, Eq, Ord, Enum)
 
 -- | define a 'hand' and a list of value and suit pairs
 type Hand = [(Value, Suit)]
+
 
 -- | checks whether a list of things are all equal
 allTheSame :: (Eq a) => [a] -> Bool
 allTheSame xs = and $ map (== head xs) (tail xs)
 
--- | Test if a Hand is a flush
+
+-- | are all the values in a hand in ascending order
+allInRow :: [Value] -> [Bool]
+allInRow (_:[]) = [True]
+allInRow (x:xs) = [head xs == succ x] ++ allInRow xs
+
+
+-- | is a given hand a straight
+isStraight :: Hand -> Bool
+isStraight x = and (allInRow $ map fst x)
+
+
+-- | is a given hand a flush
 isFlush :: Hand -> Bool
 isFlush x = allTheSame $ map snd x
+
 
 -- | Main
 main :: IO()
