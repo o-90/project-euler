@@ -44,4 +44,4 @@ smallest = min([u for u in tmp if u > LIMIT])
 exponents = [(p-1)/2 for p in primefac(smallest)][::-1]
 
 ans = reduce(lambda x,y: x*y, [x**y for x,y in zip(primes, exponents)])
-print ans
+print ans  # 180180
