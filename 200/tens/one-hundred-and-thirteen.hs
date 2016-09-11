@@ -27,6 +27,7 @@ binomial n k
   where
   	fac j = product [1..j]
 
+bouncy :: Integral a => a -> a
 bouncy 0 = 0
 bouncy k = binomial (k+8) k + binomial (k+9) k - 10
 
