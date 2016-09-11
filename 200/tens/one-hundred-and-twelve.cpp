@@ -22,54 +22,54 @@ using namespace std;
 
 
 bool is_increasing(int n) {
-  string str = to_string(n);
+    string str = to_string(n);
 
-  for (int i=0; i<str.length(); i++) {
-    if (i==0)
-      continue;
-	
+    for (int i=0; i<str.length(); i++) {
+        if (i==0)
+            continue;
+
 	if (str[i-1] > str[i])
-	  return false;
-  }
-  return true;
+	    return false;
+    }
+    return true;
 }
 
 bool is_decreasing(int n) {
-  string str = to_string(n);
+    string str = to_string(n);
 
-  for (int i=0; i<str.length(); i++) {
-    if (i==0)
-	  continue;
+    for (int i=0; i<str.length(); i++) {
+        if (i==0)
+	    continue;
 
-    if (str[i-1] < str[i])
-      return false;
-  }
-  return true;
+        if (str[i-1] < str[i])
+            return false;
+    }
+    return true;
 }
 
 bool is_bouncy(int n) {
-  if (!(is_increasing(n) || is_decreasing(n)))
-  	return true;
+    if (!(is_increasing(n) || is_decreasing(n)))
+        return true;
 
-  return false;
+    return false;
 }
 
 
 int main(int argc, char *argv[]) {
-  
-  int count = 0;
-  int i = 100;
 
-  while (i <= 2000000) {
-  	if (is_bouncy(i))
-  	  count++;
+    int count = 0;
+    int i = 100;
 
-  	if (i >= 1000000)
-  	  if (i * 0.99 == count)
-  	  	break;
+    while (i <= 2000000) {
+        if (is_bouncy(i))
+            count++;
 
-  	i++;
-  }
-  cout << "ans = " << i << endl;  // 1587000
-  return 0;
+        if (i >= 1000000)
+            if (i * 0.99 == count)
+                break;
+
+        i++;
+    }
+    cout << "ans = " << i << endl;  // 1587000
+    return 0;
 }
