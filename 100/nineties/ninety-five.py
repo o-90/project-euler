@@ -24,19 +24,19 @@ from collections import defaultdict
 # NOTE: There is probably a much better way to do this.
 
 def sum_factors(n):
-    """
-    """
-    f = set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
-    f = list(sorted(f))
-    return sum(f[:-1])
+  """
+  """
+  f = set(reduce(list.__add__, ([i, n//i] for i in range(1, int(n**0.5) + 1) if n % i == 0)))
+  f = list(sorted(f))
+  return sum(f[:-1])
 
 d = {}
 for x in range(1, 10000):
-    n = x
-    while not (d.has_key(n) or n < 1 or n > 1000000):
-        sf = sum_factors(n)
-        d[n] = sf
-        n = sf
+  n = x
+  while not (d.has_key(n) or n < 1 or n > 1000000):
+    sf = sum_factors(n)
+    d[n] = sf
+    n = sf
 
 pairs = [(k, v) for k, v in d.iteritems()]
 G = nx.DiGraph(pairs)
@@ -45,10 +45,10 @@ all_cycles = nx.simple_cycles(G)
 ans = []
 max_cycle = 0
 for cycle in all_cycles:
-    cycle_len = len(cycle)
-    if cycle_len > max_cycle:
-        ans = cycle
-        max_cycle = cycle_len
+  cycle_len = len(cycle)
+  if cycle_len > max_cycle:
+    ans = cycle
+    max_cycle = cycle_len
 
 ans = min(ans)
 print ans  # 14316

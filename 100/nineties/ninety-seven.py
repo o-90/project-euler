@@ -16,8 +16,8 @@ x = 1
 modulus = int(1e10)
 
 while i < 7830457:
-    x = 2 * x % modulus
-    i += 1
+  x = 2 * x % modulus
+  i += 1
 
 ans = (28433 * x + 1) % modulus
 print ans # 8739992577
