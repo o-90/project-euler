@@ -4,19 +4,19 @@
  * bottom right, by only moving to the right and down, is indicated in bold
  * red and is equal to 2427.
  *
- *                        131    673   234  103   18
+ *                        131    673   234    103   18
  *                         |
  *                         V
- *                        201 -> 96 -> 342  965   150
+ *                        201 -> 96 -> 342    965   150
  *                                      |
  *                                      V
- *                        630    803   746  422   111
+ *                        630    803   746    422   111
  *                                      |
  *                                      V
- *                        537    699   497  121   956
+ *                        537    699   497    121   956
  *                                      |
  *                                      V
- *                        805    732   524  37 -> 331
+ *                        805    732   524 -> 37 -> 331
  *
  * Find the minimal path sum, in p081_matrix.txt containing a 80 by 80
  * matrix, from the top left to the bottom right by only moving right
