@@ -28,6 +28,7 @@
 #include "project_euler_utilities.h"
 
 #include <iostream>
+#include <vector>
 #include <string>
 
 
