@@ -38,12 +38,18 @@ int main(int argc, char** argv) {
 
   load_csv_to_matrix(path, v);
 
-  //  test matrix is loading correctly
-  for (int i=0; i<v[0].size(); i++) {
-    for (int j=0; j<v[0].size(); j++) {
-      std::cout << v[i][j] << " ";
+  int i, j, M;
+  M = v[0].size();  // v is a square matrix
+
+  for (i=0; i<M; i++) {
+    for (j=0; j<M; j++) {
+      if (i==0 && j==0)       {  v[i][j]  = v[i][j];                         }
+      else if (j==0 && i > 0) {  v[i][j] += v[i-1][j];                       }
+      else if (i==0 && j > 0) {  v[i][j] += v[i][j-1];                       }
+      else                    {  v[i][j] += std::min(v[i-1][j], v[i][j-1]);  }
     }
-    std::cout << "\n";
   }
+  std::cout << "ans: " << v[M-1][M-1] << std::endl;
+  //  ans := 427337
   return 0;
 }
