@@ -1,4 +1,4 @@
-/* ---------------------------------------------------------------------------
+/**
  * 81)
  * In the 5 by 5 matrix below, the minimal path sum from the top left to the
  * bottom right, by only moving to the right and down, is indicated in bold
@@ -21,18 +21,15 @@
  * Find the minimal path sum, in p081_matrix.txt containing a 80 by 80
  * matrix, from the top left to the bottom right by only moving right
  * and down.
- * ---------------------------------------------------------------------------
- */
-
+ * =========================================================================*/
 
 #include "project_euler_utilities.h"
 
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
-
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 
   std::vector<std::vector<int>> v;
   std::string path = argv[1];
@@ -40,17 +37,22 @@ int main(int argc, char** argv) {
   load_csv_to_matrix(path, v);
 
   int i, j, M;
-  M = v[0].size();  // v is a square matrix
+  M = v[0].size(); // v is a square matrix
 
-  for (i=0; i<M; i++) {
-    for (j=0; j<M; j++) {
-      if (i==0 && j==0)       {  v[i][j]  = v[i][j];                         }
-      else if (j==0 && i > 0) {  v[i][j] += v[i-1][j];                       }
-      else if (i==0 && j > 0) {  v[i][j] += v[i][j-1];                       }
-      else                    {  v[i][j] += std::min(v[i-1][j], v[i][j-1]);  }
+  for (i = 0; i < M; i++) {
+    for (j = 0; j < M; j++) {
+      if (i == 0 && j == 0) {
+        v[i][j] = v[i][j];
+      } else if (j == 0 && i > 0) {
+        v[i][j] += v[i - 1][j];
+      } else if (i == 0 && j > 0) {
+        v[i][j] += v[i][j - 1];
+      } else {
+        v[i][j] += std::min(v[i - 1][j], v[i][j - 1]);
+      }
     }
   }
-  std::cout << "ans: " << v[M-1][M-1] << std::endl;
+  std::cout << "ans: " << v[M - 1][M - 1] << std::endl;
   //  ans := 427337
   return 0;
 }
